@@ -38,10 +38,10 @@ return new Promise(function (resolve, reject) {
 
                         if (!error && response.statusCode == 200) {
                             resolve({
-                                from: fromResult,
+                                from: "BTC",
                                 to: toResult,
                                 amount: parseFloat(amountResult),
-                                converted: parseFloat(converted) || parseFloat(amountResult),
+                                converted: parseFloat(converted)*options.amount || parseFloat(amountResult),
                                 url: response.req.url
                             })
                         } else {
