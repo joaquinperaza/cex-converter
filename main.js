@@ -40,9 +40,9 @@ return new Promise(function (resolve, reject) {
                             resolve({
                                 from: "BTC",
                                 to: toResult,
-                                amount: parseFloat(amountResult),
-                                converted: parseFloat(converted)*options.amount || parseFloat(amountResult),
-                                url: response.req.url
+                                amount: parseFloat(options.amount),
+                                converted: parseFloat(converted)*options.amount || parseFloat(amountResult)
+                                
                             })
                         } else {
                             reject(error);
