@@ -5,6 +5,7 @@ function converter(options) {
     const https = require('https');
 
     https.get("https://cex.io/api/last_price/BTC/USD", (resp) => {
+        return new Promise(function (resolve, reject) {
         let data = '';
 
         // A chunk of data has been recieved.
@@ -16,7 +17,7 @@ function converter(options) {
         resp.on('end', () => {
             var amounto = JSON.parse(data).lprice;//3500USD - 1 BTC
 
-            return new Promise(function (resolve, reject) {
+            
                 const source = 'https://finance.google.com/finance/converter'
                 const queryString = {
                     a: amounto,
@@ -47,7 +48,7 @@ function converter(options) {
                             reject(error);
                         }
                     })
-            });
+            
         });
 
     }).on("error", (err) => {
@@ -56,7 +57,7 @@ function converter(options) {
 
 
 
-
+});///
 }
 
 module.exports = converter
