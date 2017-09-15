@@ -41,7 +41,7 @@ return new Promise(function (resolve, reject) {
                                 from: fromResult,
                                 to: toResult,
                                 amount: parseFloat(amountResult),
-                                converted: parseFloat(converted*options.amount) || parseFloat(amountResult),
+                                converted: parseFloat(converted) || parseFloat(amountResult),
                                 url: response.req.url
                             })
                         } else {
