@@ -41,7 +41,7 @@ return new Promise(function (resolve, reject) {
                                 from: "BTC",
                                 to: toResult,
                                 amount: parseFloat(options.amount),
-                                converted: parseFloat(converted)*options.amount || parseFloat(amountResult)
+                                converted: Math.round(parseFloat(converted)*options.amount*100000)/100000 || parseFloat(amountResult)
                                 
                             })
                         } else {
