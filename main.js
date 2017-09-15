@@ -21,7 +21,7 @@ function converter(options) {
                 const queryString = {
                     a: amounto,
                     from: "USD",
-                    to: "UYU"
+                    to: options.to
                 }
                 request
                     .get(source)
@@ -40,7 +40,7 @@ function converter(options) {
                                 from: fromResult,
                                 to: toResult,
                                 amount: parseFloat(amountResult),
-                                converted: parseFloat(converted) || parseFloat(amountResult),
+                                converted: parseFloat(converted*options.amount) || parseFloat(amountResult),
                                 url: response.req.url
                             })
                         } else {
